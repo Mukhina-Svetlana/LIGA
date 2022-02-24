@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         button.tintColor = .black
        // button.setTitleColor(.lightGray, for: .normal)
         button.layer.cornerRadius = 4
-        button.addTarget(self, action: #selector(didTapValidateButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapValidationButton(button:)), for: .touchUpInside)
         return button
     }()
     private lazy var nameValidationResultLabel: UILabel = {
@@ -92,7 +92,7 @@ class ViewController: UIViewController {
         button.backgroundColor = .systemYellow
         button.tintColor = .black
         button.layer.cornerRadius = 4
-        button.addTarget(self, action: #selector(didTapEmailValidateButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapValidationButton(button:)), for: .touchUpInside)
         return button
     }()
     
@@ -136,9 +136,9 @@ extension ViewController {
             hiLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             
             firstCardVew.topAnchor.constraint(equalTo: hiLabel.bottomAnchor,constant: 15),
-            firstCardVew.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            firstCardVew.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            firstCardVew.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/4),
+            firstCardVew.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            firstCardVew.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+           // firstCardVew.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/4),
         
             namedTF.topAnchor.constraint(equalTo: firstCardVew.topAnchor, constant: 20),
             namedTF.leadingAnchor.constraint(equalTo: firstCardVew.leadingAnchor, constant: 10),
@@ -147,16 +147,16 @@ extension ViewController {
             
             nameValidationButton.topAnchor.constraint(equalTo: namedTF.bottomAnchor, constant: 20),
             nameValidationButton.centerXAnchor.constraint(equalTo: firstCardVew.centerXAnchor),
-            nameValidationButton.heightAnchor.constraint(equalToConstant: 40),
+            nameValidationButton.heightAnchor.constraint(equalToConstant: 30),
             
             nameValidationResultLabel.topAnchor.constraint(equalTo: nameValidationButton.bottomAnchor, constant: 15),
             nameValidationResultLabel.leadingAnchor.constraint(equalTo: firstCardVew.leadingAnchor, constant: 20),
             nameValidationResultLabel.trailingAnchor.constraint(equalTo: firstCardVew.trailingAnchor, constant: -20),
+            nameValidationResultLabel.bottomAnchor.constraint(equalTo: firstCardVew.bottomAnchor, constant: -20),
             
-            secondCardVew.topAnchor.constraint(equalTo: firstCardVew.bottomAnchor, constant: 30),
-            secondCardVew.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            secondCardVew.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            secondCardVew.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/4),
+           secondCardVew.topAnchor.constraint(equalTo: firstCardVew.bottomAnchor, constant: 20),
+            secondCardVew.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            secondCardVew.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
             emailTF.topAnchor.constraint(equalTo: secondCardVew.topAnchor, constant: 20),
             emailTF.leadingAnchor.constraint(equalTo: secondCardVew.leadingAnchor, constant: 10),
@@ -165,35 +165,39 @@ extension ViewController {
             
             emailValidationButton.topAnchor.constraint(equalTo: emailTF.bottomAnchor, constant: 20),
             emailValidationButton.centerXAnchor.constraint(equalTo: secondCardVew.centerXAnchor),
-            emailValidationButton.heightAnchor.constraint(equalToConstant: 40),
+            emailValidationButton.heightAnchor.constraint(equalToConstant: 30),
             
             emailValidationResultLabel.topAnchor.constraint(equalTo: emailValidationButton.bottomAnchor, constant: 15),
             emailValidationResultLabel.leadingAnchor.constraint(equalTo: secondCardVew.leadingAnchor, constant: 20),
             emailValidationResultLabel.trailingAnchor.constraint(equalTo: secondCardVew.trailingAnchor, constant: -20),
+            emailValidationResultLabel.bottomAnchor.constraint(equalTo: secondCardVew.bottomAnchor, constant: -20),
             
         ])
         
     }
     
     @objc
-    private func didTapValidateButton() {
-        let regExString = "[A-Za-zА-ЯЁа-яё-]{2,}+\\s{1}+[A-Za-zА-ЯЁа-яё-]{2,}"
+    private func didTapValidationButton(button: UIButton) {
+        var regExString = ""
+        var label = UILabel()
+        var tf = UITextField()
+        //let button = UIButton()
+        switch button{
+        case nameValidationButton:
+            regExString = "[A-Za-zА-ЯЁа-яё-]{2,}+\\s{1}+[A-Za-zА-ЯЁа-яё-]{2,}"
+            label = nameValidationResultLabel
+            tf = namedTF
+        default:
+            regExString = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.{1}+[a-z]{2,64}"
+            label = emailValidationResultLabel
+            tf = emailTF
+            
+        }
         let predicate = NSPredicate(format: "SELF MATCHES[c] %@", regExString)
-        let isValid = predicate.evaluate(with: namedTF.text)
+        let isValid = predicate.evaluate(with: tf.text)
 
-        nameValidationResultLabel.text = isValid ? "Валидация прошла успешно" : "В поле ошибка"
-        nameValidationResultLabel.textColor = isValid ? .systemGreen : .systemRed
-    }
-    
-    @objc
-    private func didTapEmailValidateButton() {
-        let regExString = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-za-z]{2,64}"
-        let predicate = NSPredicate(format: "SELF MATCHES[c] %@", regExString)
-        let isValid = predicate.evaluate(with: emailTF.text)
-
-        emailValidationResultLabel.text = isValid ? "Валидация прошла успешно" : "В поле ошибка"
-        emailValidationResultLabel.textColor = isValid ? .systemGreen : .systemRed
+        label.text = isValid ? "Валидация прошла успешно" : "В поле ошибка"
+        label.textColor = isValid ? .systemGreen : .systemRed
     }
 }
-
 
