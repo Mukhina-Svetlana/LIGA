@@ -9,14 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //MARK: First Card
-    private lazy var firstCardVew: UIView = {
-        let view  = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 12
-        view.backgroundColor = .secondarySystemBackground
-        return view
-    }()
     private lazy var hiLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -27,6 +19,14 @@ class ViewController: UIViewController {
         return label
     }()
     
+    //MARK: First Card
+    private lazy var firstCardVew: UIView = {
+        let view  = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 12
+        view.backgroundColor = .secondarySystemBackground
+        return view
+    }()
     private lazy var namedTF: UITextField = {
        let tf = UITextField()
         tf.placeholder = "Введите имя и фамилию"
@@ -111,13 +111,14 @@ class ViewController: UIViewController {
         configuration()
     }
 
-
 }
 
-extension ViewController{
-    private func configuration(){
+extension ViewController {
+    private func configuration() {
         view.backgroundColor = .systemBackground
+        
         view.addSubview(hiLabel)
+        
         view.addSubview(firstCardVew)
         firstCardVew.addSubview(namedTF)
         firstCardVew.addSubview(nameValidationButton)
@@ -127,6 +128,7 @@ extension ViewController{
         secondCardVew.addSubview(emailTF)
         secondCardVew.addSubview(emailValidationButton)
         secondCardVew.addSubview(emailValidationResultLabel)
+        
         NSLayoutConstraint.activate([
             
             hiLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -137,8 +139,7 @@ extension ViewController{
             firstCardVew.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             firstCardVew.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             firstCardVew.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/4),
-            
-
+        
             namedTF.topAnchor.constraint(equalTo: firstCardVew.topAnchor, constant: 20),
             namedTF.leadingAnchor.constraint(equalTo: firstCardVew.leadingAnchor, constant: 10),
             namedTF.trailingAnchor.constraint(equalTo: firstCardVew.trailingAnchor, constant: -10),
@@ -147,13 +148,10 @@ extension ViewController{
             nameValidationButton.topAnchor.constraint(equalTo: namedTF.bottomAnchor, constant: 20),
             nameValidationButton.centerXAnchor.constraint(equalTo: firstCardVew.centerXAnchor),
             nameValidationButton.heightAnchor.constraint(equalToConstant: 40),
-           // validationButton.leadingAnchor.constraint(equalTo: cardVew.leadingAnchor, constant: 10),
-           // validationButton.trailingAnchor.constraint(equalTo: cardVew.trailingAnchor, constant: -10),
             
             nameValidationResultLabel.topAnchor.constraint(equalTo: nameValidationButton.bottomAnchor, constant: 15),
             nameValidationResultLabel.leadingAnchor.constraint(equalTo: firstCardVew.leadingAnchor, constant: 20),
             nameValidationResultLabel.trailingAnchor.constraint(equalTo: firstCardVew.trailingAnchor, constant: -20),
-            
             
             secondCardVew.topAnchor.constraint(equalTo: firstCardVew.bottomAnchor, constant: 30),
             secondCardVew.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -177,7 +175,6 @@ extension ViewController{
         
     }
     
-    
     @objc
     private func didTapValidateButton() {
         let regExString = "[A-Za-zА-ЯЁа-яё-]{2,}+\\s{1}+[A-Za-zА-ЯЁа-яё-]{2,}"
@@ -191,7 +188,6 @@ extension ViewController{
     @objc
     private func didTapEmailValidateButton() {
         let regExString = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-za-z]{2,64}"
-        //"^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$])[A-Za-zА-\\d$@$]{1,}$"
         let predicate = NSPredicate(format: "SELF MATCHES[c] %@", regExString)
         let isValid = predicate.evaluate(with: emailTF.text)
 
