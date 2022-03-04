@@ -116,7 +116,6 @@ extension CustomView {
         var regExString = ""
         let label = validationResultLabel
         let tf = textFieldToValidation
-        //let button = UIButton()
         switch typeScreenToValidation{
         case .name:
             regExString = "[A-Za-zА-ЯЁа-яё-]{2,}+\\s{1}+[A-Za-zА-ЯЁа-яё-]{2,}"

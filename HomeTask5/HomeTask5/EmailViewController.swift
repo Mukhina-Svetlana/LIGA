@@ -10,7 +10,7 @@ import UIKit
 class EmailViewController: UIViewController {
     
     override func loadView() {
-        self.view = CustomView(typeScreenToValidation: .email)
+        view = CustomView(typeScreenToValidation: .email)
     }
     
     override func viewDidLoad() {

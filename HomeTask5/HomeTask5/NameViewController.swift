@@ -10,7 +10,7 @@ import UIKit
 class NameViewController: UIViewController {
     
     override func loadView() {
-        self.view = CustomView(typeScreenToValidation: .name)
+        view = CustomView(typeScreenToValidation: .name)
     }
 
     override func viewDidLoad() {
