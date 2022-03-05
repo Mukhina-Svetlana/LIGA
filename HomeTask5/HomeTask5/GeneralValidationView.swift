@@ -12,7 +12,7 @@ enum TypeScreenToValidation {
     case email
 }
 
-class CustomView: UIView {
+class GeneralValidationView: UIView {
     
     private var typeScreenToValidation: TypeScreenToValidation
     
@@ -80,7 +80,7 @@ class CustomView: UIView {
     
 }
 
-extension CustomView {
+extension GeneralValidationView {
     func configuration(view: UIView) {
         view.backgroundColor = .secondarySystemBackground
         view.addSubview(firstCardView)

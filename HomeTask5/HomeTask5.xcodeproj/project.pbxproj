@@ -14,7 +14,7 @@
 		AE33EFF827D23BED00CCDF41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE33EFF627D23BED00CCDF41 /* LaunchScreen.storyboard */; };
 		AE33F00027D24D9E00CCDF41 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE33EFFF27D24D9E00CCDF41 /* NameViewController.swift */; };
 		AE33F00227D24E8300CCDF41 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE33F00127D24E8300CCDF41 /* EmailViewController.swift */; };
-		AE33F00427D2B67F00CCDF41 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE33F00327D2B67F00CCDF41 /* CustomView.swift */; };
+		AE33F00427D2B67F00CCDF41 /* GeneralValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE33F00327D2B67F00CCDF41 /* GeneralValidationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		AE33EFF927D23BED00CCDF41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE33EFFF27D24D9E00CCDF41 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		AE33F00127D24E8300CCDF41 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
-		AE33F00327D2B67F00CCDF41 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		AE33F00327D2B67F00CCDF41 /* GeneralValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralValidationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 				AE33EFEB27D23BED00CCDF41 /* AppDelegate.swift */,
 				AE33EFED27D23BED00CCDF41 /* SceneDelegate.swift */,
 				AE33EFEF27D23BED00CCDF41 /* ViewController.swift */,
-				AE33F00327D2B67F00CCDF41 /* CustomView.swift */,
+				AE33F00327D2B67F00CCDF41 /* GeneralValidationView.swift */,
 				AE33F00127D24E8300CCDF41 /* EmailViewController.swift */,
 				AE33EFFF27D24D9E00CCDF41 /* NameViewController.swift */,
 				AE33EFF427D23BED00CCDF41 /* Assets.xcassets */,
@@ -146,7 +146,7 @@
 				AE33EFF027D23BED00CCDF41 /* ViewController.swift in Sources */,
 				AE33EFEC27D23BED00CCDF41 /* AppDelegate.swift in Sources */,
 				AE33EFEE27D23BED00CCDF41 /* SceneDelegate.swift in Sources */,
-				AE33F00427D2B67F00CCDF41 /* CustomView.swift in Sources */,
+				AE33F00427D2B67F00CCDF41 /* GeneralValidationView.swift in Sources */,
 				AE33F00027D24D9E00CCDF41 /* NameViewController.swift in Sources */,
 				AE33F00227D24E8300CCDF41 /* EmailViewController.swift in Sources */,
 			);
