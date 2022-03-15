@@ -108,7 +108,7 @@ extension ManualViewController{
         
         let viewWidth = UIScreen.main.bounds.width - 40
         cardView.frame = CGRect(x: 20, y: view.safeAreaInsets.top+20, width: viewWidth, height: 200)
-        labelCource.frame = CGRect(x: 20, y: 0, width: viewWidth, height: 90)
+        labelCource.frame = CGRect(x: 20, y: 0, width: viewWidth-20, height: 90)
         buttonMore.frame = CGRect(x: 20, y: labelCource.frame.maxY, width: viewWidth, height: 20)
         priceLabel.frame = CGRect(x: 20, y: buttonMore.frame.maxY+20, width: viewWidth, height: 30)
         addButton.frame = CGRect(x: viewWidth-120, y: priceLabel.frame.minY, width: 90, height: 40)

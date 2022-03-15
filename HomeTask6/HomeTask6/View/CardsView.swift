@@ -15,7 +15,7 @@ class CardsView: UIView {
         var label = UILabel()
         label.backgroundColor = .white
         label.layer.cornerRadius = 10
-        label.text = "   Первые три занятия бесплатно"
+        label.text = "   Первые три занятия бесплатно "
         label.font = .systemFont(ofSize: 15)
         label.textColor = .systemGray
         label.textAlignment = .left
