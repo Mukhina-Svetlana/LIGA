@@ -77,14 +77,8 @@
 				AE33F03527D7ED0100CCDF41 /* AppDelegate.swift */,
 				AE33F03727D7ED0100CCDF41 /* SceneDelegate.swift */,
 				AE33F04927D7EDBD00CCDF41 /* TabBarViewController.swift */,
-				AE8BEAC727E00B270065E2E1 /* AutoLayout */,
-				AE8BEAC927E00B620065E2E1 /* Xib */,
-				AE33F04D27D7FAB900CCDF41 /* ManualViewController.swift */,
-				AE33F04F27D7FAE900CCDF41 /* NavigationViewController.swift */,
-				AE33F05127D7FB2000CCDF41 /* LargeNavigationViewController.swift */,
-				AE8BEAC527E0047A0065E2E1 /* AfterLargeViewController.swift */,
-				AE8BEAB927D974220065E2E1 /* ModallyNewViewController.swift */,
-				AE8BEAC327E000000065E2E1 /* ModallyViewController.swift */,
+				AE8BEAC727E00B270065E2E1 /* View */,
+				AE8BEAC927E00B620065E2E1 /* ViewControllers */,
 				AE33F03E27D7ED0200CCDF41 /* Assets.xcassets */,
 				AE33F04027D7ED0200CCDF41 /* LaunchScreen.storyboard */,
 				AE33F04327D7ED0200CCDF41 /* Info.plist */,
@@ -92,22 +86,28 @@
 			path = HomeTask6;
 			sourceTree = "<group>";
 		};
-		AE8BEAC727E00B270065E2E1 /* AutoLayout */ = {
+		AE8BEAC727E00B270065E2E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				AE33F05327D81E5900CCDF41 /* CardsView.swift */,
-				AE33F03927D7ED0100CCDF41 /* AutoLayoutViewController.swift */,
+				AE8BEABD27DED0650065E2E1 /* XXibView.xib */,
 			);
-			path = AutoLayout;
+			path = View;
 			sourceTree = "<group>";
 		};
-		AE8BEAC927E00B620065E2E1 /* Xib */ = {
+		AE8BEAC927E00B620065E2E1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AE8BEABD27DED0650065E2E1 /* XXibView.xib */,
+				AE33F03927D7ED0100CCDF41 /* AutoLayoutViewController.swift */,
 				AE8BEAC127DED0930065E2E1 /* XXibViewController.swift */,
+				AE33F04D27D7FAB900CCDF41 /* ManualViewController.swift */,
+				AE33F04F27D7FAE900CCDF41 /* NavigationViewController.swift */,
+				AE33F05127D7FB2000CCDF41 /* LargeNavigationViewController.swift */,
+				AE8BEAC527E0047A0065E2E1 /* AfterLargeViewController.swift */,
+				AE8BEAB927D974220065E2E1 /* ModallyNewViewController.swift */,
+				AE8BEAC327E000000065E2E1 /* ModallyViewController.swift */,
 			);
-			path = Xib;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
