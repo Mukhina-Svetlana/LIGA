@@ -11,6 +11,7 @@ class CardsView: UIView {
     
     var goToNavigationVC: (() -> Void)?
     var goToModallyVC: (() -> Void)?
+    
     lazy private var textInfo: UILabel = {
         var label = UILabel()
         label.backgroundColor = .white
