@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var models: [Model] = [Model(expand: true,
-                                 title: " Top-5 Moscow ",
+                                 title: " Top-5 Москва ",
                                  cellModel: [ModelOfCell(nameSinger: "Artik & Asti", nameSong:  "Гармония", nameImage: "Гармония"), ModelOfCell(nameSinger: "Егор Крид & MakSim", nameSong: "Отпускаю", nameImage: "Отпускаю"), ModelOfCell(nameSinger: "ANNA ASTI", nameSong: "Фенникс", nameImage: "Фенникс"), ModelOfCell(nameSinger: "Jakomo & A.V.G.", nameSong: "Платина", nameImage: "Платина"),ModelOfCell(nameSinger: "Andro", nameSong:  "Как не любить", nameImage: "Andro")]),
                            Model(expand: true,
                                  title: " Top-5 Алма-Ата ",
