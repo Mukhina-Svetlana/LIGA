@@ -1,8 +1,8 @@
 //
 //  CustomHeader.swift
-//  HeaderTableView
+//  HomeTask7
 //
-//  Created by Светлана Мухина on 16.03.2022.
+//  Created by Светлана Мухина on 18.03.2022.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ class CustomHeader: UITableViewHeaderFooterView {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .secondarySystemBackground
+        button.backgroundColor = .systemPink
         button.addTarget(self, action:#selector(tapButton), for: .touchUpInside)
         return button
     }()
@@ -64,8 +64,10 @@ extension CustomHeader {
             label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
             button.topAnchor.constraint(equalTo: label.topAnchor),
-            button.widthAnchor.constraint(equalToConstant: 80),
-            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20)
+            button.widthAnchor.constraint(equalToConstant: 60),
+            button.heightAnchor.constraint(equalToConstant: 25),
+            button.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -20),
         ])
     }
 }
+

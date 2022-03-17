@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  HeaderTableView
+//  HomeTask7
 //
-//  Created by Светлана Мухина on 15.03.2022.
+//  Created by Светлана Мухина on 18.03.2022.
 //
 
 import UIKit

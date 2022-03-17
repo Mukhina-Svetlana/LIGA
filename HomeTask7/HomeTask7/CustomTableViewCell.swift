@@ -1,8 +1,8 @@
 //
 //  CustomTableViewCell.swift
-//  HeaderTableView
+//  HomeTask7
 //
-//  Created by Светлана Мухина on 16.03.2022.
+//  Created by Светлана Мухина on 18.03.2022.
 //
 
 import UIKit
@@ -33,7 +33,6 @@ class CustomTableViewCell: UITableViewCell {
         stack.distribution = .fillEqually
         stack.alignment = .fill
         stack.spacing = 3
-      //  stack.tag = 5007
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -50,9 +49,9 @@ class CustomTableViewCell: UITableViewCell {
     lazy private var buttonAdd: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .yellow
+        button.backgroundColor = .lightGray
         button.setTitle("  +   ", for: .normal)
-        button.setTitleColor(.systemBrown, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(increaseStar), for: .touchUpInside)
         return button
     }()
@@ -68,7 +67,7 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     func textForEachCell(labelSong: String, labelSinger: String, imageSong: String){
-        self.labelSong.text = labelSong + "           " + labelSinger
+        self.labelSong.text = labelSong + "     " + labelSinger
         self.imageSong.image = UIImage(named: "\(imageSong)")
     }
     
@@ -95,24 +94,25 @@ extension CustomTableViewCell{
         contentView.addSubview(buttonAdd)
         
         NSLayoutConstraint.activate([
-            imageSong.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            imageSong.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             imageSong.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
             imageSong.heightAnchor.constraint(equalToConstant: 70),
-            imageSong.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            imageSong.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -5),
             imageSong.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1/5),
-            labelSong.topAnchor.constraint(equalTo: imageSong.topAnchor, constant: 20),
-            labelSong.leadingAnchor.constraint(lessThanOrEqualTo: imageSong.trailingAnchor, constant: 40),
-            stackStars.topAnchor.constraint(equalTo: labelSong.bottomAnchor, constant: 10),
-            stackStars.leadingAnchor.constraint(equalTo: imageSong.trailingAnchor, constant: 30),
-            stackStars.bottomAnchor.constraint(equalTo: imageSong.bottomAnchor, constant: -10),
+            labelSong.topAnchor.constraint(equalTo: imageSong.topAnchor, constant: 10),
+            labelSong.leadingAnchor.constraint(lessThanOrEqualTo: imageSong.trailingAnchor, constant: 20),
+            stackStars.topAnchor.constraint(equalTo: labelSong.bottomAnchor, constant: 15),
+            stackStars.leadingAnchor.constraint(equalTo: imageSong.trailingAnchor, constant: 25),
+            stackStars.bottomAnchor.constraint(equalTo: imageSong.bottomAnchor, constant: -15),
             buttonAdd.topAnchor.constraint(equalTo: stackStars.topAnchor),
             buttonAdd.leadingAnchor.constraint(greaterThanOrEqualTo: stackStars.trailingAnchor,constant: 30),
-            buttonAdd.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
+            buttonAdd.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
             buttonAdd.bottomAnchor.constraint(equalTo: stackStars.bottomAnchor),
-            buttonAdd.widthAnchor.constraint(equalToConstant: 60),
+            buttonAdd.widthAnchor.constraint(equalToConstant: 70),
         ])
         
     }
+    
     @objc
     private func increaseStar(){
         if index <= 4 {
@@ -127,5 +127,4 @@ extension CustomTableViewCell{
             }
         }
     }
-    
 }
